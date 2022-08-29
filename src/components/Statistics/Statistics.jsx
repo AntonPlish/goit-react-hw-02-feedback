@@ -8,15 +8,23 @@ const Tag = styled.p`
 `;
 
 const Statistics = ({ good, neutral, bad, total, percentage }) => {
-    return (
-        <div>
-            <Tag> Good: {good}</Tag>
-            <Tag> Neutral: {neutral}</Tag>
-            <Tag> Bad: {bad}</Tag>
-            <Tag> Total: {total}</Tag>
-            <Tag> Positive feedback: {percentage}%</Tag>
-        </div>
-    );
+    if (good === 0 && neutral === 0 && bad === 0) {
+        return (
+            <div>
+                <Tag>There is no feedback</Tag>
+            </div>
+        )
+    } else {
+        return (
+            <div>
+                <Tag> Good: {good}</Tag>
+                <Tag> Neutral: {neutral}</Tag>
+                <Tag> Bad: {bad}</Tag>
+                <Tag> Total: {total}</Tag>
+                <Tag> Positive feedback: {percentage}%</Tag>
+            </div>
+        );
+    };
 };
 
 Statistics.propTypes = {

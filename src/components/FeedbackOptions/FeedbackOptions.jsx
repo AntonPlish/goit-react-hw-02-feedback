@@ -22,7 +22,7 @@ const FeedbackOptions = ({ buttons, onClickFeedback }) => {
                     name={item}
                     onClick={e => onClickFeedback(e.currentTarget.name)}
                 >
-                    {item}
+                    {item[0].toUpperCase() + item.slice(1)}
                 </Button>
             ))}
         </div>

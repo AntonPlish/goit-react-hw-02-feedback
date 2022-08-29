@@ -9,23 +9,13 @@ export class App extends Component {
     bad: 0
   }
   
-  onClickFeedback = (name) => {
-    if (name === 'Good') {
-      this.setState(prevState => ({
-        good: prevState.good + 1
-      }))
-    } else if (name === 'Neutral') {
-      this.setState(prevState => ({
-        neutral: prevState.neutral + 1
-      }))
-    } else if (name === 'Bad') {
-      this.setState(prevState => ({
-        bad: prevState.bad + 1
-      }))
-    };
+  onClickFeedback = name => {
+    this.setState(prevState => {
+      return { [name]: prevState[name] + 1 };
+    });
   };
   
-  options = ['Good', 'Neutral', 'Bad'];
+  options = ['good', 'neutral', 'bad'];
   
   totalAmount = () => {
     return this.state.good + this.state.neutral + this.state.bad
